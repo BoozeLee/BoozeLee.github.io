@@ -1,0 +1,22 @@
+# Next-Gen Research: AlphaTensor-Driven Advancement
+## Deep Research Directions (AlphaTensor-derived)
+./algorithms/explore_factorizations.ipynb:        "Please note that as provided, the factorizations decompose the *symmetrized* version of the matrix multiplication tensor, representing the bilinear operation $\\mathbf{A}, \\mathbf{B} \\mapsto (\\mathbf{A} \\cdot \\mathbf{B})^T$. This is standard in the literature, and factorizations can be easily converted\n",
+./algorithms/explore_factorizations.ipynb:        "def get_mamu_tensor_rectangular(a: int, b: int, c: int) -\u003e np.ndarray:\n",
+./algorithms/explore_factorizations.ipynb:        "  \"\"\"Returns the symmetrized matrix multiplication tensor T_{a, b, c}.\"\"\"\n",
+./algorithms/explore_factorizations.ipynb:        "tensor = get_mamu_tensor_rectangular(3, 4, 5)\n",
+./algorithms/explore_factorizations.ipynb:        "if np.array_equal(tensor, reconstruction):\n",
+./algorithms/explore_factorizations.ipynb:        "elif np.array_equal(tensor, np.mod(reconstruction, 2)):\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "In code comments we write `S` for the tensor size (equals $16$ for $\\boldsymbol{\\mathscr{T}}_4$) and `R` for the rank (equals $49$ in the provided `.npz` file)."
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  rank, _, tensor_size = factorization.shape\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  matrix_size = int(np.sqrt(tensor_size))\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  return factorization.reshape((rank, 3, matrix_size, matrix_size))\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  \"\"\"Returns the matrix rank invariant of `factorization`.\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  The matrix rank invariant of a factorization {U_r, V_r, W_r}_{r=1}^R is\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  where {.} denotes an unordered tuple, and rank(X_r) is the matrix rank of the\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  factor X_r when seen as a square matrix. See Supplementary Information of the\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "    The matrix rank invariant of `factorization`. The unordered tuples are\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  ranks = np.linalg.matrix_rank(matricized)  # [R, 3]\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "      U_r V_r W_r equals the identity matrix.\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  matrix_size = matricized_factorization.shape[-1]\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  is_uvw_identity = np.all(u @ v @ w == np.eye(matrix_size), axis=(1, 2))  # [R]\n",
+./nonequivalence/inspect_factorizations_notebook.ipynb:        "  matrix_a = np.eye(matrix_size)  # [sqrt(S), sqrt(S)]\n",
