@@ -1,0 +1,11 @@
+name: Post-Gemini Report
+on:
+  push:
+    paths:
+      - '**.md'
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report
+        run: echo "Gemini report generated for latest commits."
