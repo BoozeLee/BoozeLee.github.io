@@ -3,65 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terminal221B — Sovereign Infrastructure Lab</title>
+  <meta name="description" content="BoozeLee — Sovereign AI Infrastructure · Security Research · Web3 · Belgium">
+  <meta property="og:title" content="Terminal221B — BoozeLee">
+  <meta property="og:url" content="https://boozlee.github.io">
+  <title>Terminal221B — BoozeLee</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #050508; color: #c8c8d8; font-family: 'Courier New', monospace; }
-    .header { padding: 3rem; border-bottom: 1px solid #8b0000; }
-    h1 { font-size: 3rem; color: #e74c3c; letter-spacing: -0.02em; }
-    .motto { color: #c9922a; font-size: 0.8rem; letter-spacing: 0.3em; margin-top: 0.5rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; padding: 3rem; }
-    .card { background: #0f0f18; border: 1px solid #1a1a2e; border-left: 3px solid #8b0000; padding: 1.5rem; }
-    .card h2 { color: #e74c3c; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
-    .card p { color: #888; font-size: 0.85rem; line-height: 1.7; }
-    .tag { display: inline-block; border: 1px solid #8b0000; color: #e74c3c; font-size: 0.65rem; padding: 0.2rem 0.5rem; margin: 0.2rem; text-transform: uppercase; letter-spacing: 0.1em; }
-    .footer { padding: 2rem 3rem; border-top: 1px solid #1a1a2e; color: #4a4a6a; font-size: 0.75rem; letter-spacing: 0.2em; }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--red:#e74c3c;--gold:#c9922a;--dim:#888;--border:#1a1a2e;--rb:#8b0000;--bg:#050508;--card:#0f0f18;--green:#2ea043;--greendim:#1a5c2b}
+    body{background:var(--bg);color:#c8c8d8;font-family:'Courier New',monospace}
+    .header{padding:3rem;border-bottom:1px solid var(--rb)}
+    h1{font-size:3rem;color:var(--red);letter-spacing:-0.02em}
+    .motto{color:var(--gold);font-size:.8rem;letter-spacing:.3em;margin-top:.5rem}
+    .subtitle{margin-top:1rem;color:#666;font-size:.85rem}
+    /* SPONSOR HERO */
+    .sponsor-hero{margin:2rem 3rem;border:1px solid var(--green);border-left:4px solid var(--green);background:#0a1a0a;padding:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .sponsor-hero h2{color:var(--green);font-size:1rem;text-transform:uppercase;letter-spacing:.15em;margin-bottom:.75rem}
+    .sponsor-hero p{color:#aaa;font-size:.85rem;line-height:1.7;max-width:500px}
+    .sponsor-btn{display:inline-block;background:var(--green);color:#fff;text-decoration:none;padding:.75rem 2rem;font-family:'Courier New',monospace;font-size:.9rem;font-weight:bold;letter-spacing:.05em;border:2px solid var(--green);transition:background .15s,color .15s;white-space:nowrap}
+    .sponsor-btn:hover{background:transparent;color:var(--green)}
+    /* TIERS */
+    .tiers{padding:0 3rem 2rem}
+    .section-title{color:var(--gold);font-size:.85rem;text-transform:uppercase;letter-spacing:.25em;margin-bottom:1.5rem}
+    .tier-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem}
+    .tier-card{background:var(--card);border:1px solid var(--border);padding:1.25rem}
+    .tier-card.hot{border-color:var(--green)}
+    .tier-price{color:var(--green);font-size:1.3rem;font-weight:bold}
+    .tier-name{color:var(--gold);font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;margin:.3rem 0}
+    .tier-desc{color:var(--dim);font-size:.75rem;line-height:1.5}
+    .tier-badge{display:inline-block;font-size:.6rem;background:var(--greendim);color:var(--green);padding:.1rem .4rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.1em}
+    /* PROJECTS */
+    .section-label{padding:2rem 3rem 1rem;color:var(--gold);font-size:.85rem;text-transform:uppercase;letter-spacing:.25em}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;padding:0 3rem 3rem}
+    .card{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--rb);padding:1.5rem}
+    .card.g{border-left-color:var(--green)}
+    .card h2{color:var(--red);font-size:1rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+    .card.g h2{color:var(--green)}
+    .card p{color:var(--dim);font-size:.85rem;line-height:1.7}
+    .tag{display:inline-block;border:1px solid var(--rb);color:var(--red);font-size:.65rem;padding:.2rem .5rem;margin:.2rem;text-transform:uppercase;letter-spacing:.1em}
+    .tag.g{border-color:var(--greendim);color:var(--green)}
+    .card a{color:var(--red);text-decoration:none}
+    .card.g a{color:var(--green)}
+    /* HALL */
+    .hall{margin:0 3rem 3rem;border:1px solid var(--gold);padding:2rem;background:#0d0a00}
+    .hall h2{color:var(--gold);font-size:.85rem;text-transform:uppercase;letter-spacing:.25em;margin-bottom:1rem}
+    .hall p{color:#666;font-size:.8rem;font-style:italic}
+    /* FOOTER */
+    .footer{padding:2rem 3rem;border-top:1px solid var(--border);color:#4a4a6a;font-size:.75rem;letter-spacing:.2em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer a{color:#666;text-decoration:none}
+    .footer a:hover{color:var(--red)}
   </style>
 </head>
 <body>
   <header class="header">
-    <h1>Terminal<span style="color:#c9922a">221B</span></h1>
+    <h1>Terminal<span style="color:var(--gold)">221B</span></h1>
     <p class="motto">TRUTH · HONOR · FREEDOM · VALOR</p>
-    <p style="margin-top:1rem;color:#666;font-size:0.85rem">Sovereign AI Infrastructure · Web3 Research · Systems Architecture · Hasselt, Belgium</p>
+    <p class="subtitle">Sovereign AI Infrastructure · Web3 Research · Systems Architecture · Hasselt, Belgium</p>
   </header>
+
+  <section class="sponsor-hero">
+    <div>
+      <h2>💚 Support Open Source</h2>
+      <p>All core features are free. Sponsorship keeps infrastructure running, accelerates development, and unlocks early access, priority support, and direct roadmap influence. Payment verified — tiers live on <strong>github.com/sponsors/BoozeLee</strong>.</p>
+    </div>
+    <a href="https://github.com/sponsors/BoozeLee" class="sponsor-btn">♥ Sponsor BoozeLee</a>
+  </section>
+
+  <section class="tiers">
+    <div class="section-title">⚡ Live Sponsorship Tiers</div>
+    <div class="tier-grid">
+      <div class="tier-card">
+        <div class="tier-price">$5<span style="font-size:.7rem;color:var(--dim)">/mo</span></div>
+        <div class="tier-name">Community Supporter</div>
+        <div class="tier-desc">Sponsor badge · shoutout in READMEs</div>
+      </div>
+      <div class="tier-card hot">
+        <span class="tier-badge">Popular</span>
+        <div class="tier-price">$12<span style="font-size:.7rem;color:var(--dim)">/mo</span></div>
+        <div class="tier-name">Pro Backer</div>
+        <div class="tier-desc">+ early access · priority issues · Discord</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-price">$25<span style="font-size:.7rem;color:var(--dim)">/mo</span></div>
+        <div class="tier-name">Gold Sponsor</div>
+        <div class="tier-desc">+ name/logo in READMEs · check-in · roadmap</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-price">$50<span style="font-size:.7rem;color:var(--dim)">/mo</span></div>
+        <div class="tier-name">Enterprise Partner</div>
+        <div class="tier-desc">+ priority features · logo on landing pages · dedicated channel</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-price">$100<span style="font-size:.7rem;color:var(--dim)"> once</span></div>
+        <div class="tier-name">Lifetime Supporter</div>
+        <div class="tier-desc">Hall of Fame · lifetime access to private repos & tools</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-label">🔬 Active Projects</div>
   <div class="grid">
-    <div class="card">
-      <h2>🏗️ Infrastructure</h2>
-      <p>Sovereign hypervisor lab (Proxmox VE), ZFS storage pools, GPU passthrough (GTX 1080), bare metal AI inference.</p>
-      <br>
-      <span class="tag">Proxmox</span><span class="tag">ZFS</span><span class="tag">IOMMU</span><span class="tag">Ollama</span>
+    <div class="card g">
+      <h2>🧠 Baker Street Laboratory</h2>
+      <p>Autonomous AI research platform — 8 specialized models, multi-agent orchestration, FastAPI + Stripe + Supabase. SaaS from $299/mo.</p><br>
+      <span class="tag g">Python</span><span class="tag g">FastAPI</span><span class="tag g">Multi-Agent</span><span class="tag g">Supabase</span><br><br>
+      <a href="https://github.com/BoozeLee/Baker-Street-Laboratory-1">→ Baker-Street-Laboratory-1</a>
     </div>
     <div class="card">
       <h2>🔐 Security Research</h2>
-      <p>Web3 vulnerability research, smart contract audits, bounty hunting on Immunefi/HackerOne/Intigriti. Ethical offensive security.</p>
-      <br>
-      <span class="tag">Immunefi</span><span class="tag">Solidity</span><span class="tag">Kali</span><span class="tag">GNS3</span>
+      <p>Web3 vulnerability research, smart contract audits, PoC exploits. Responsible disclosure via Immunefi / HackerOne / Intigriti.</p><br>
+      <span class="tag">Immunefi</span><span class="tag">Solidity</span><span class="tag">Kali</span><span class="tag">PoC</span><br><br>
+      <a href="https://github.com/BoozeLee/security-research">→ security-research</a>
     </div>
     <div class="card">
-      <h2>⛓️ Blockchain</h2>
-      <p>RustChain sovereign chain (RIP-PoA consensus), Solana DeFi research, CCIP cross-chain analysis, Substrate development.</p>
-      <br>
-      <span class="tag">Rust</span><span class="tag">Substrate</span><span class="tag">Solana</span><span class="tag">RTC</span>
+      <h2>⛓️ Dex223 Contracts</h2>
+      <p>ERC-223 compliant DEX smart contracts. Integer underflow analysis, reentrancy research, Hardhat + Foundry test suite.</p><br>
+      <span class="tag">Solidity</span><span class="tag">Hardhat</span><span class="tag">ERC-223</span><span class="tag">Foundry</span><br><br>
+      <a href="https://github.com/BoozeLee/Dex223-contracts">→ Dex223-contracts</a>
     </div>
     <div class="card">
-      <h2>🤖 AI Research</h2>
-      <p>Local LLM inference, sovereign AI governance (PrimeCore), Hypercube research model, agentic systems architecture.</p>
-      <br>
-      <span class="tag">LLaMA</span><span class="tag">LangGraph</span><span class="tag">Claude</span><span class="tag">Bio-Jazz</span>
+      <h2>🌌 Paulien's Sky</h2>
+      <p>Multi-cultural astrology engine — Western, Vedic, Chinese, Mayan, Egyptian, Celtic, Zoroastrian. Flutter cross-platform.</p><br>
+      <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Astrology</span><span class="tag">AI</span><br><br>
+      <a href="https://github.com/BoozeLee/pauliens-sky">→ pauliens-sky</a>
     </div>
     <div class="card">
-      <h2>🛠️ Stack</h2>
-      <p>Rust + WebAssembly · Tauri + React + TypeScript · Ed25519/ChaCha20-Poly1305 · IPFS + SQLite · Docker/Podman</p>
-      <br>
-      <span class="tag">Rust</span><span class="tag">WASM</span><span class="tag">TypeScript</span><span class="tag">IPFS</span>
+      <h2>🔬 Oncology Research</h2>
+      <p>Secure research documentation platform for clinical oncology collaboration, AI-assisted literature review and trial matching.</p><br>
+      <span class="tag">Research</span><span class="tag">Clinical</span><span class="tag">AI</span><br><br>
+      <a href="https://github.com/BoozeLee/BakerStreet-Oncology-Research">→ BakerStreet-Oncology-Research</a>
     </div>
     <div class="card">
-      <h2>📡 Contact</h2>
-      <p>GitHub: <a href="https://github.com/BoozeLee" style="color:#e74c3c">@BoozeLee</a><br>
-         Identity: BoozeLee / Kiliaan<br>
-         Location: Hasselt, Belgium (🇧🇪 Flanders)</p>
+      <h2>📡 Contact & Stack</h2>
+      <p>GitHub: <a href="https://github.com/BoozeLee">@BoozeLee</a><br>
+         Email: <a href="mailto:kiliaanv2@gmail.com">kiliaanv2@gmail.com</a><br>
+         Location: Hasselt, Belgium 🇧🇪<br><br>
+         Rust · Python · Solidity · Flutter · TypeScript · Go</p>
     </div>
   </div>
-  <footer class="footer">Terminal221B · Sovereign Infrastructure · 2026 · All ops logged. All data sovereign.</footer>
+
+  <section class="hall">
+    <h2>🏆 Hall of Fame — Lifetime Supporters</h2>
+    <p>Be the first Lifetime Supporter ($100 one-time) — your name lives here permanently across all projects and gets embedded in every release changelog.</p>
+    <!-- LIFETIME_SPONSORS_START -->
+    <!-- LIFETIME_SPONSORS_END -->
+  </section>
+
+  <footer class="footer">
+    <span>Terminal221B · Sovereign Infrastructure · Hasselt 🇧🇪 · 2026</span>
+    <span>
+      <a href="https://github.com/BoozeLee">github.com/BoozeLee</a> ·
+      <a href="https://github.com/sponsors/BoozeLee">Sponsor</a> ·
+      <a href="mailto:kiliaanv2@gmail.com">Contact</a>
+    </span>
+  </footer>
 </body>
 </html>

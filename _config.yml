@@ -1,13 +1,18 @@
-title: "BoozeLee's Laboratory"
-description: "Autonomous AI research platform and laboratory repository."
-url: "https://BoozeLee.github.io"
+title: "Terminal221B — BoozeLee"
+description: "Sovereign AI Infrastructure · Security Research · Web3 · Open Source · Hasselt, Belgium"
+url: "https://boozlee.github.io"
 baseurl: ""
-remote_theme: "mmistakes/minimal-mistakes"
+author:
+  name: "Kiliaan Vanvoorden"
+  email: "kiliaanv2@gmail.com"
+  github: "BoozeLee"
+  sponsors: "https://github.com/sponsors/BoozeLee"
 
-# Minimal Mistakes settings
+# GitHub Pages — pure HTML, no Jekyll theme needed for index.html
+# Keep remote_theme for markdown pages
+remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "air"
 
-# Build settings
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -25,3 +30,17 @@ defaults:
       type: "pages"
     values:
       layout: "single"
+
+social:
+  links:
+    - "https://github.com/BoozeLee"
+    - "https://github.com/sponsors/BoozeLee"
+
+twitter:
+  username: BoozeLee
+
+exclude:
+  - "*.sh"
+  - "generate_docs.sh"
+  - "SYSTEM_PROMPT.md"
+  - "RESEARCH_CURE_CANCER_PLAN.md"
