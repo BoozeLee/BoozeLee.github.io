@@ -8,10 +8,8 @@ author:
   github: "BoozeLee"
   sponsors: "https://github.com/sponsors/BoozeLee"
 
-# GitHub Pages uses the static index.html landing page and Jekyll for
-# supporting markdown pages.
-remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "air"
+# GitHub Pages serves the static HTML portfolio directly. Jekyll is kept only
+# for sitemap/feed/metadata support.
 
 plugins:
   - jekyll-feed
@@ -31,3 +29,4 @@ exclude:
   - "generate_docs.sh"
   - "SYSTEM_PROMPT.md"
   - "RESEARCH_CURE_CANCER_PLAN.md"
+  - "README.md"
