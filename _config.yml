@@ -1,5 +1,5 @@
-title: "Terminal221B — BoozeLee"
-description: "Sovereign AI Infrastructure · Security Research · Web3 · Open Source · Hasselt, Belgium"
+title: "Kiliaan Vanvoorden - AI & Software Engineering Portfolio"
+description: "AI tooling, automation, full-stack web, and local-first software projects by Kiliaan Vanvoorden."
 url: "https://boozlee.github.io"
 baseurl: ""
 author:
@@ -8,8 +8,8 @@ author:
   github: "BoozeLee"
   sponsors: "https://github.com/sponsors/BoozeLee"
 
-# GitHub Pages — pure HTML, no Jekyll theme needed for index.html
-# Keep remote_theme for markdown pages
+# GitHub Pages uses the static index.html landing page and Jekyll for
+# supporting markdown pages.
 remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "air"
 
@@ -17,19 +17,6 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "single"
-      author_profile: true
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "single"
 
 social:
   links:

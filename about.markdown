@@ -1,18 +1,12 @@
 ---
-layout: page
 title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Kiliaan Vanvoorden is a software engineering candidate from Hasselt, Belgium.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+This portfolio highlights practical AI tooling, automation, full-stack web, and
+mobile prototype work. The public repositories linked from the homepage are kept
+public only when they are working, documented, or useful as engineering evidence.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+Contact: [kiliaanv2@gmail.com](mailto:kiliaanv2@gmail.com)
