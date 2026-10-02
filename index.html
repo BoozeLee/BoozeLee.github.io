@@ -1,329 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kiliaan Vanvoorden builds AI tooling, automation systems, web apps, and local-first software. Portfolio for jobs and internships.">
-  <meta property="og:title" content="Kiliaan Vanvoorden - AI & Software Engineering Portfolio">
-  <meta property="og:description" content="AI tooling, automation, full-stack web, and local-first software projects.">
-  <meta property="og:image" content="https://github.com/BoozeLee.png">
-  <meta property="og:url" content="https://boozelee.github.io">
-  <title>Kiliaan Vanvoorden - AI & Software Engineering Portfolio</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    :root {
-      --ink: #18202a;
-      --muted: #5b6673;
-      --line: #d8dde5;
-      --paper: #f7f8fa;
-      --white: #ffffff;
-      --green: #18794e;
-      --blue: #2558a7;
-      --rust: #a64f21;
-      --shadow: 0 16px 40px rgba(24, 32, 42, .08);
-    }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-    }
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    header {
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav {
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .brand { font-weight: 760; letter-spacing: 0; }
-    .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
-    .hero {
-      display: grid;
-      grid-template-columns: 160px minmax(0, 1fr);
-      gap: 34px;
-      padding: 58px 0 54px;
-      align-items: center;
-    }
-    .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      object-fit: cover;
-      background: var(--white);
-    }
-    .eyebrow {
-      margin: 0 0 10px;
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 760;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-    h1 {
-      margin: 0;
-      max-width: 820px;
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.04;
-      letter-spacing: 0;
-    }
-    .lead {
-      max-width: 760px;
-      margin: 22px 0 0;
-      color: var(--muted);
-      font-size: 19px;
-    }
-    .actions {
-      margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 18px;
-      border: 1px solid var(--ink);
-      border-radius: 6px;
-      color: var(--white);
-      background: var(--ink);
-      font-weight: 680;
-      font-size: 14px;
-      text-decoration: none;
-    }
-    .button.secondary {
-      color: var(--ink);
-      background: var(--white);
-      border-color: var(--line);
-    }
-    .section { padding: 44px 0; }
-    .section h2 {
-      margin: 0 0 18px;
-      font-size: 24px;
-      letter-spacing: 0;
-    }
-    .summary {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 24px;
-    }
-    .panel {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-    .panel p:first-child { margin-top: 0; }
-    .panel p:last-child { margin-bottom: 0; }
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .chip {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: #fbfcfd;
-      padding: 7px 10px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 620;
-      white-space: nowrap;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .project {
-      min-height: 238px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 20px;
-    }
-    .project h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      letter-spacing: 0;
-    }
-    .project p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: auto;
-    }
-    .meta span {
-      color: var(--rust);
-      background: #fff5ef;
-      border: 1px solid #f0d7c8;
-      border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 12px;
-      font-weight: 650;
-    }
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    @media (max-width: 820px) {
-      .hero, .summary { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
-      .avatar { width: 132px; height: 132px; }
-      .links { justify-content: flex-start; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiliaan Vanvoorden · AI Evaluation Engineering</title>
+<meta name="description" content="Self-taught engineer. I build the verification layer for AI systems — the gates, tests and CI that decide whether a system is right. Available immediately, EU citizen, remote.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.58;color:#e0e0e0;background:#121212;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{max-width:720px;margin:0 auto;padding:2.5rem 1.2rem 4rem}
+a{color:#7ecfff;text-decoration:underline;text-underline-offset:3px}
+a:hover{color:#a0dfff}
+h1{font-size:2rem;font-weight:700;line-height:1.2;margin-bottom:.3rem;color:#fff}
+h2{font-size:1.3rem;font-weight:600;margin:2.5rem 0 .6rem;color:#fff;border-bottom:1px solid #333;padding-bottom:.3rem}
+h3{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .4rem;color:#ccc}
+p{margin-bottom:.8rem}
+.tag{display:inline-block;background:#1e1e1e;border:1px solid #444;border-radius:4px;padding:0 .4rem;font-size:.85rem;margin-right:.3rem;margin-bottom:.3rem}
+.cmd{background:#1a1a1a;border:1px solid #333;border-radius:6px;padding:.7rem 1rem;margin:.5rem 0 1rem;font-family:'SF Mono','Fira Code','Cascadia Code',monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all}
+.stat{font-family:system-ui;font-weight:600;color:#7ecfff}
+.meta{font-size:.85rem;color:#999;margin-bottom:1.5rem}
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid #333;font-size:.85rem;color:#999}
+@media(max-width:500px){body{padding:1.5rem 1rem 2rem}h1{font-size:1.6rem}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <div class="brand">Kiliaan Vanvoorden</div>
-      <nav class="links" aria-label="Primary">
-        <a href="#projects">Projects</a>
-        <a href="#offer">Estates Sale</a>
-        <a href="https://github.com/BoozeLee">GitHub</a>
-        <a href="mailto:bakerstreetbandit@zohomail.eu">Contact</a>
-      </nav>
-    </div>
-    <div class="wrap hero">
-      <img class="avatar" src="https://github.com/BoozeLee.png" alt="Kiliaan Vanvoorden GitHub avatar">
-      <div>
-        <p class="eyebrow">Open to internships and junior software roles</p>
-        <h1>AI tooling, automation, and full-stack prototypes built with practical engineering discipline.</h1>
-        <p class="lead">I am a software engineering candidate from Hasselt, Belgium, focused on AI-assisted developer tooling, local-first systems, React/TypeScript applications, Flutter prototypes, and automation-heavy workflows.</p>
-        <div class="actions">
-          <a class="button" href="https://github.com/BoozeLee">View GitHub</a>
-          <a class="button secondary" href="mailto:bakerstreetbandit@zohomail.eu">Email me</a>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <main>
-    <section class="wrap section">
-      <div class="summary">
-        <div class="panel">
-          <h2>Profile</h2>
-          <p>I build small, working systems and document them carefully: agent prototypes, web apps, research repositories, and mobile concepts. I am strongest where product ideas need to become runnable software with readable code, clear setup notes, and sensible automation.</p>
-          <p>I am looking for teams where I can contribute to AI systems, developer tooling, full-stack product engineering, automation, or applied research while growing under senior engineering review.</p>
-        </div>
-        <div class="panel">
-          <h2>Stack</h2>
-          <div class="chips">
-            <span class="chip">Python</span>
-            <span class="chip">TypeScript</span>
-            <span class="chip">React</span>
-            <span class="chip">Vite</span>
-            <span class="chip">Flutter</span>
-            <span class="chip">Rust</span>
-            <span class="chip">Supabase</span>
-            <span class="chip">GitHub Actions</span>
-            <span class="chip">Linux</span>
-            <span class="chip">LLM tooling</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<h1>Kiliaan Vanvoorden</h1>
+<p class="meta">
+Self-taught engineer · Riemst, Belgium · EU citizen · available immediately · remote EU/US · no sponsorship required
+</p>
 
-    <section class="wrap section" id="projects">
-      <h2>Selected Working Projects</h2>
-      <div class="grid">
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/mixhive">mixhive</a></h3>
-            <p>DJ-first social music platform with React, Vite, Supabase, mix sharing, and waveform-oriented product direction.</p>
-          </div>
-          <div class="meta"><span>React</span><span>Vite</span><span>Supabase</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/pauliens-sky-app">pauliens-sky-app</a></h3>
-            <p>Flutter app exploring cross-cultural astrology concepts with a mobile-first structure and documented governance.</p>
-          </div>
-          <div class="meta"><span>Flutter</span><span>Dart</span><span>Mobile</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/synapse-ace-agent">synapse-ace-agent</a></h3>
-            <p>Autonomous agent prototype for SAP/OOBE workflow research, structured around service orchestration and validation.</p>
-          </div>
-          <div class="meta"><span>TypeScript</span><span>Agents</span><span>Automation</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/trendforge-agent">trendforge-agent</a></h3>
-            <p>Rust-based research automation project for structured trend analysis and repeatable data workflows.</p>
-          </div>
-          <div class="meta"><span>Rust</span><span>Research</span><span>CLI</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/vlaio-webapp">vlaio-webapp</a></h3>
-            <p>Innovation demo that presents AI workflow concepts in a business-facing web application.</p>
-          </div>
-          <div class="meta"><span>TypeScript</span><span>Web</span><span>Demo</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/jazzy-ai-models">jazzy-ai-models</a></h3>
-            <p>AI model research database and notes, focused on finding useful models beyond the obvious defaults.</p>
-          </div>
-          <div class="meta"><span>Python</span><span>AI research</span><span>Data</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/graveyard-forensics">graveyard-forensics</a></h3>
-            <p>Estates Sale report for GitHub profiles and orgs: stub repos, fake price claims, dead homepages, keepers. Self-audited 200-repo teardown.</p>
-          </div>
-          <div class="meta"><span>Python</span><span>Audit</span><span>$79 PDF+CSV</span></div>
-        </article>
-      </div>
-    </section>
+<p>I build the <strong>verification layer for AI systems</strong> — the gates, tests and CI that decide whether a system is actually right, and that fail loudly when it is not. I am looking for a first role where writing the evaluation harness <em>is</em> the job.</p>
 
-    <section class="wrap section" id="offer">
-      <div class="panel">
-        <h2>Estates Sale — GitHub graveyard audit ($79)</h2>
-        <p>Same scanner I ran on my own profile: grave score, price-claim smells, migration stubs, dead links, keepers, and a 14-day cleanup plan. Deliverable is PDF + row-level CSV. Public GitHub metadata only.</p>
-        <p><a href="https://github.com/BoozeLee/graveyard-forensics/blob/master/TEARDOWN.md">Read my full self-teardown</a> · <a href="https://github.com/BoozeLee/graveyard-forensics/blob/master/OFFER.md">Offer &amp; fulfillment</a> · free teaser via issue template.</p>
-        <div class="actions">
-          <a class="button" href="https://github.com/BoozeLee/graveyard-forensics">Open Graveyard Forensics</a>
-          <a class="button secondary" href="mailto:bakerstreetbandit@zohomail.eu?subject=Estates%20Sale%20report">Email to buy</a>
-        </div>
-      </div>
-    </section>
+<p>Every number on this page came out of a command you can re-run. The command is next to the number. No degree, no prior employment — the repos are my credential.</p>
 
-    <section class="wrap section">
-      <div class="panel">
-        <h2>What Employers Can Expect</h2>
-        <p>Clear communication, careful repository hygiene, practical problem solving, and a bias toward shipping small verified improvements. I keep portfolio projects public only when they are working, documented, or useful as evidence of engineering growth.</p>
-      </div>
-    </section>
-  </main>
+<p>📧 <a href="mailto:bakerstreetbandit@zohomail.eu">bakerstreetbandit@zohomail.eu</a> &nbsp;·&nbsp; <a href="https://github.com/BoozeLee">github.com/BoozeLee</a></p>
 
-  <footer>
-    <div class="wrap">Hasselt, Belgium | <a href="mailto:bakerstreetbandit@zohomail.eu">bakerstreetbandit@zohomail.eu</a> | <a href="https://github.com/BoozeLee">github.com/BoozeLee</a></div>
-  </footer>
+<h2>Case studies</h2>
+
+<h3><a href="https://github.com/BoozeLee/elohim">elohim</a> — a gate for numerical claims</h3>
+<p><strong>Problem:</strong> an AI system that publishes numbers nobody can re-derive is indistinguishable from one that makes them up. Every evaluation dashboard is one silent regression away from becoming a lie.</p>
+<p><strong>Approach:</strong> pin every published number to a checksum, re-derive each value independently, and refuse to pass anything it cannot classify. Six measurement instruments each catch a different class of false claim; the seventh, <code>reproducibility</code>, monitors the other six.</p>
+<div class="cmd">python3 tests/test_all.py   # → ALL_SKILLS_PASS</div>
+<p><strong>Outcome:</strong> <span class="stat">81 facts classified, 107 checksum-pinned values, 0 unclassified.</span> 6/6 seeded tampering attempts caught — each emits <code>verdict FAIL</code> + <code>PIN DRIFT</code> naming the altered file. 26 commits, 20,639 non-blank Python lines, measured at <code>114f660</code>. MIT, CI + CodeQL green.</p>
+
+<h3><a href="https://github.com/BoozeLee/harness">harness</a> — the AI engineering pipeline, measured against the agent it replaces</h3>
+<p><strong>Problem:</strong> coding agents report success whether or not they succeeded. A pipeline that passes every gate without evidence has passed nothing.</p>
+<p><strong>Approach:</strong> <code>scan → task → verify → pr</code>: a guard hook blocks protected-path writes and secret reads before the edit lands, every claim is bound to measured evidence, and a PR refuses to open unless the verdict is PASS — a skipped review counts as not passed.</p>
+<div class="cmd">pip install git+https://github.com/BoozeLee/harness.git<br>pytest   # → 88 passed<br>harness scan --fail-under 70   # exits 1 below the readiness floor</div>
+<p><strong>Outcome:</strong> <span class="stat">11/13 graded PASS</span> (raw vs harnessed evaluation against a hidden acceptance suite), <span class="stat">88 tests, 11 subcommands, 48 commits.</span> Scope violations: raw 3, harnessed 4 — published because the harness cannot improve what it hides. Wheel + sdist build via <code>uv build</code>. AGPL-3.0.</p>
+
+<h3><a href="https://github.com/BoozeLee/terminal221b">terminal221b</a> — a coding CLI bounded to a workspace</h3>
+<p><strong>Problem:</strong> token budgets do not bound what an agent can read or write — they only limit what it can <em>request</em>. An agent that over-reads and over-writes is silently dangerous.</p>
+<p><strong>Approach:</strong> bound context by path, not by token budget. Redact credentials out of stored transcripts before they reach disk — with a test that fails if a secret survives. Ship a TypeScript CLI alongside a Rust <code>ratatui</code> TUI and an Expo mobile client.</p>
+<div class="cmd">npm ci && npm test   # → 385 passed<br>cargo test            # → 60 passed</div>
+<p><strong>Outcome:</strong> <span class="stat">445 tests total</span> (385 TypeScript + 60 Rust). 55 commits, 16,210 non-blank lines. Test modules cover the containment properties (<code>path-guard</code>, <code>boundary-drift</code>, <code>scope</code>), not just the happy paths. AGPL-3.0.</p>
+
+<h2>Also shipped (public, one command to verify)</h2>
+<p>
+<a href="https://github.com/BoozeLee/mcp-regression-lab">mcp-regression-lab</a> — 29 tests, GitHub Action that diffs an MCP server's tool contract across releases (ISC)&nbsp;·
+<a href="https://github.com/Bakery-street-project/galacticfederation">repotruth</a> — 147 tests / 32 suites, signed-webhook verification, one audit core as CLI + MCP server + fleet (AGPL)&nbsp;·
+private, on request: capo (349 tests), superbrain (298 tests), beehive-studio (54,550 nb lines)
+</p>
+
+<h2>Stack</h2>
+<p>
+<span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">Rust</span><span class="tag">shell</span><span class="tag">Git</span><span class="tag">GitHub Actions</span><span class="tag">pytest</span><span class="tag">vitest</span><span class="tag">cargo test</span><span class="tag">npm/pnpm workspaces</span><span class="tag">MCP tool contracts</span><span class="tag">agent skill manifests</span><span class="tag">claim-binding evaluation harnesses</span><span class="tag">tamper-detection fixtures</span><span class="tag">HMAC webhook verification</span>
+</p>
+
+<h2>How I got here</h2>
+<p>I taught myself Python, Rust and TypeScript without formal education or a prior role in tech. My background is logistics and production work: 12-hour shifts, solo operation on processing lines, pre-dawn deadlines with material consequences. That work taught me to show up, finish the run, and verify before I declare it done — and to write down the procedure so the next person can act without me.</p>
+<p>When I started shipping code, I carried the same discipline. An agent that reports success whether or not it succeeded is a machine that needs an operator. I built the checks I wanted to exist — instruments that re-derive their own numbers, gates tested by being broken on purpose, a harness measured against the thing it replaces, including where the measurement is unflattering. That is the work I want to be paid for.</p>
+
+<h2>Honest scope</h2>
+<p>No degree, no certifications, no prior employment — this would be my first role in tech. My six public repos have zero stars and no users; there is no adoption story. <code>Bakery-street-project</code> is my personal project, not a company, and I do not present it as one. Docker, Kubernetes and Go appear nowhere in my code.</p>
+<p>Everything above the line is verifiable: clone the repository and run the command shown.</p>
+
+<footer>
+<p>📧 bakerstreetbandit@zohomail.eu &nbsp;·&nbsp; github.com/BoozeLee &nbsp;·&nbsp; Riemst, Belgium &nbsp;·&nbsp; EU citizen, remote-ready</p>
+<p>Built from measured evidence · <a href="https://github.com/boozelee/boozelee.github.io">source</a></p>
+</footer>
+
 </body>
 </html>
