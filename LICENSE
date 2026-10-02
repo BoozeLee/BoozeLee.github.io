@@ -1,1 +1,14 @@
-Apache License 2.0
+Copyright (c) 2026 Kiliaan Vanvoorden. All rights reserved.
+
+This repository contains the source of a personal portfolio website. It is
+published so that the rendered page can be served as a static site and so that
+the claims on that page can be checked against a visible history.
+
+No permission is granted to copy, redistribute, sublicense, or create
+derivative works from this repository or from the files in it.
+
+The projects this portfolio links to are separate works under their own
+licenses. Nothing here grants any rights in those projects, and nothing here
+changes their terms.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
