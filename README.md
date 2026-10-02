@@ -29,7 +29,7 @@ python3 tests/test_all.py   # → ALL_SKILLS_PASS; verdict FAIL + PIN DRIFT on a
 ```
 
 **81 facts · 107 checksum-pinned values · 0 unclassified · 6/6 seeded tampering caught** ·
-26 commits, 20,639 non-blank lines, measured at `114f660`
+43 commits, 22,196 non-blank lines, measured at `a047ccd`
 
 ### [harness](https://github.com/BoozeLee/harness) — the AI engineering pipeline, measured against the agent it replaces · AGPL-3.0
 
