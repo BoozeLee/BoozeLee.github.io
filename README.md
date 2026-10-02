@@ -1,42 +1,98 @@
-# Portfolio
+# Kiliaan Vanvoorden
 
-This repository publishes <https://boozelee.github.io>.
+I build the verification layer for AI systems — the gates, tests and CI that decide
+whether a system is actually right, and that fail loudly when it isn't.
 
-It is one static file. There is no build step, no framework, no bundler and no
-analytics: `index.html` is served as-is by GitHub Pages, which is why `.nojekyll`
-is present. You can read the entire site by viewing source, and the rendered
-page makes no third-party requests.
+**Open to AI engineering roles where the evaluation harness *is* the job.**
+Based in Riemst, Belgium · open to remote roles · employment or contract.
 
-## Why it is built this way
+📧 [bakerstreetbandit@zohomail.eu](mailto:bakerstreetbandit@zohomail.eu)
 
-The portfolio is the argument that I can do evaluation and verification work
-properly. If it were a heavy site with a toolchain, the reader would have to
-trust the toolchain. One file means the claims on the page can be read exactly
-as they are served.
+Every number below came out of a command you can run. The command sits next to the number.
 
-Every number on the page is shown with the command that reproduces it from a
-clean clone, and pinned to a specific commit, so a reader can check the claim
-instead of taking it on trust.
+## Currently building
 
-## Content rules
+- **elohim** — next measurement track (mutation survival, shard pinning), landing daily
+- **harness** — v1.1.0 wheel and CI readiness floor; package release pending
+- **terminal221b** — release tagging and install hardening
 
-- Link only to public repositories that actually work and are documented.
-- Every figure traces to a recorded measurement. A claim I cannot re-derive
-  gets removed, not softened.
-- Private repositories are named as private, with no test or adoption claims
-  I have not measured.
-- No claim about customers, revenue, deployments, or speaking engagements,
-  because I have none of those.
-- Do not publish private contact details, unfinished experiments, or internal
-  agent prompts.
+## Featured work
 
-## Local preview
+### [elohim](https://github.com/BoozeLee/elohim) — a gate for numerical claims · MIT
+
+Six instruments measure hard mathematics, pin every result they claim, and refuse to pass
+if anything moved — including the instrument itself. Break a file on purpose: the gate
+names it.
 
 ```bash
-python3 -m http.server 8000
-# then open http://localhost:8000/
+python3 tests/test_all.py   # → ALL_SKILLS_PASS; verdict FAIL + PIN DRIFT on any tampered copy
 ```
 
-## Contact
+**81 facts · 107 checksum-pinned values · 0 unclassified · 6/6 seeded tampering caught** ·
+26 commits, 20,639 non-blank lines, measured at `114f660`
 
-Kiliaan Vanvoorden — <bakerstreetbandit@zohomail.eu> · Riemst, Belgium
+### [harness](https://github.com/BoozeLee/harness) — the AI engineering pipeline, measured against the agent it replaces · AGPL-3.0
+
+`scan → task → verify → pr`. Protected-path writes and secret reads are blocked before an
+agent's edit lands; a PR refuses to open unless the verdict is PASS — a skipped review
+counts as not passed. The evaluation runs the same agent raw and harnessed against a
+hidden acceptance suite: **11/13 graded PASS**, and the unflattering number is published
+too (scope violations: raw 3, harnessed 4).
+
+```bash
+pip install git+https://github.com/BoozeLee/harness.git   # 1.1.0
+pytest                                                     # → 88 passed
+```
+
+**88 tests · 11 subcommands · 48 commits** · `scan --fail-under 70` exits 1 below the
+floor · wheel + sdist build via `uv build`
+
+### [terminal221b](https://github.com/BoozeLee/terminal221b) — a coding CLI bounded to a workspace · AGPL-3.0
+
+TypeScript CLI with a Rust `ratatui` TUI and an Expo client. Context is bounded by path,
+not by a token budget; untrusted output is redacted before it reaches a stored
+transcript; the test modules are the containment properties (`path-guard`,
+`boundary-drift`, `scope`).
+
+```bash
+npm ci && npm test    # → 385 passed
+cargo test            # → 60 passed
+```
+
+**445 tests total (385 TypeScript + 60 Rust) · 55 commits · 16,210 non-blank lines**
+
+### [mcp-regression-lab](https://github.com/BoozeLee/mcp-regression-lab) — CI that catches silent agent breakage · ISC
+
+A GitHub Action that diffs an MCP server's tool contract across releases, so a renamed or
+narrowed tool fails CI instead of failing in production. Untrusted tool text is escaped
+before it reaches a PR comment.
+
+```bash
+npm ci && npm test    # → 29 passed
+```
+
+**29 tests · 1,247 non-blank TypeScript lines**
+
+**Also public:** [repotruth](https://github.com/Bakery-street-project/galacticfederation) —
+CI that reads the repository, not just the diff: signed-webhook verification (replay →
+idempotent 200, unsigned → 400 and nothing queued, tampered body rejected), one audit
+core exposed as CLI, MCP server and fleet dashboard. 147 tests across 32 suites.
+
+**Private, available to show on request:** capo (349 tests across five packages) ·
+superbrain (298 passing tests) · beehive-studio (54,550 non-blank lines).
+
+## How I work
+
+Give an agent a task and it will report success whether or not it succeeded. The
+interesting work is the part where you check. So I built the checks I wanted to exist:
+instruments that re-derive their own numbers, gates tested by being broken on purpose, a
+harness measured against the thing it replaces — including where the measurement is
+unflattering. That is the work I want to be paid for.
+
+## Honest scope
+
+No degree or certifications, and no prior employment — this would be my first role.
+`Bakery-street-project` is my personal project, not a company. Every public repo has
+0 stars and no users; there is no adoption story. Docker, Kubernetes and Go appear
+nowhere in my code. Everything above is verifiable by cloning the repository and running
+the command shown.
