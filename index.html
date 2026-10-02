@@ -1,329 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kiliaan Vanvoorden builds AI tooling, automation systems, web apps, and local-first software. Portfolio for jobs and internships.">
-  <meta property="og:title" content="Kiliaan Vanvoorden - AI & Software Engineering Portfolio">
-  <meta property="og:description" content="AI tooling, automation, full-stack web, and local-first software projects.">
-  <meta property="og:image" content="https://github.com/BoozeLee.png">
-  <meta property="og:url" content="https://boozelee.github.io">
-  <title>Kiliaan Vanvoorden - AI & Software Engineering Portfolio</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    :root {
-      --ink: #18202a;
-      --muted: #5b6673;
-      --line: #d8dde5;
-      --paper: #f7f8fa;
-      --white: #ffffff;
-      --green: #18794e;
-      --blue: #2558a7;
-      --rust: #a64f21;
-      --shadow: 0 16px 40px rgba(24, 32, 42, .08);
-    }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-    }
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    header {
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav {
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .brand { font-weight: 760; letter-spacing: 0; }
-    .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
-    .hero {
-      display: grid;
-      grid-template-columns: 160px minmax(0, 1fr);
-      gap: 34px;
-      padding: 58px 0 54px;
-      align-items: center;
-    }
-    .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      object-fit: cover;
-      background: var(--white);
-    }
-    .eyebrow {
-      margin: 0 0 10px;
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 760;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-    h1 {
-      margin: 0;
-      max-width: 820px;
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.04;
-      letter-spacing: 0;
-    }
-    .lead {
-      max-width: 760px;
-      margin: 22px 0 0;
-      color: var(--muted);
-      font-size: 19px;
-    }
-    .actions {
-      margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 18px;
-      border: 1px solid var(--ink);
-      border-radius: 6px;
-      color: var(--white);
-      background: var(--ink);
-      font-weight: 680;
-      font-size: 14px;
-      text-decoration: none;
-    }
-    .button.secondary {
-      color: var(--ink);
-      background: var(--white);
-      border-color: var(--line);
-    }
-    .section { padding: 44px 0; }
-    .section h2 {
-      margin: 0 0 18px;
-      font-size: 24px;
-      letter-spacing: 0;
-    }
-    .summary {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 24px;
-    }
-    .panel {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-    .panel p:first-child { margin-top: 0; }
-    .panel p:last-child { margin-bottom: 0; }
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .chip {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: #fbfcfd;
-      padding: 7px 10px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 620;
-      white-space: nowrap;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .project {
-      min-height: 238px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 20px;
-    }
-    .project h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      letter-spacing: 0;
-    }
-    .project p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: auto;
-    }
-    .meta span {
-      color: var(--rust);
-      background: #fff5ef;
-      border: 1px solid #f0d7c8;
-      border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 12px;
-      font-weight: 650;
-    }
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    @media (max-width: 820px) {
-      .hero, .summary { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
-      .avatar { width: 132px; height: 132px; }
-      .links { justify-content: flex-start; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiliaan Vanvoorden — evaluation &amp; verification engineering for AI systems</title>
+<meta name="description" content="I build the checks that decide whether an AI system is right. Python, Rust, TypeScript. Every number below is re-derivable by you with one command.">
+<meta name="author" content="Kiliaan Vanvoorden">
+<link rel="canonical" href="https://boozelee.github.io/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kiliaan Vanvoorden — evaluation &amp; verification engineering">
+<meta property="og:description" content="I build the checks that decide whether an AI system is right.">
+<meta property="og:url" content="https://boozelee.github.io/">
+
+<style>
+:root{
+  --bg:#fbfbfa; --fg:#1a1a19; --muted:#5f5f5c; --line:#e2e2df; --card:#fff;
+  --code-bg:#f2f2f0; --accent:#0b5c4a; --accent-fg:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#131312; --fg:#ececea; --muted:#a0a09c; --line:#2c2c2a; --card:#1b1b1a;
+    --code-bg:#1f1f1e; --accent:#5fd0b0; --accent-fg:#08201a;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-feature-settings:"kern";
+}
+.wrap{max-width:74ch;margin:0 auto;padding:0 1.25rem 5rem}
+header{padding:4.5rem 0 0}
+h1{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.2;letter-spacing:-0.02em;margin:0 0 .6rem;font-weight:650}
+h2{font-size:1.3rem;letter-spacing:-0.01em;margin:3.5rem 0 .4rem;font-weight:640;
+   padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+h3{font-size:1.03rem;margin:2rem 0 .35rem;font-weight:620}
+p{margin:.7rem 0}
+a{color:var(--accent);text-underline-offset:2px}
+.lede{font-size:1.13rem;color:var(--muted);margin:0 0 1.4rem;max-width:60ch}
+.tagline{font-weight:600;color:var(--fg)}
+code,kbd{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;font-size:.88em}
+code{background:var(--code-bg);padding:.14em .4em;border-radius:4px}
+pre{background:var(--code-bg);border:1px solid var(--line);border-radius:8px;
+    padding:.8rem .9rem;overflow-x:auto;font-size:.83rem;line-height:1.5;margin:.7rem 0}
+pre code{background:none;padding:0;font-size:inherit}
+ul{padding-left:1.2rem}
+li{margin:.3rem 0}
+.small{font-size:.875rem;color:var(--muted)}
+.meta{color:var(--muted);font-size:.95rem;margin-top:.2rem}
+.cta{display:inline-block;background:var(--accent);color:var(--accent-fg);
+     padding:.6rem 1.1rem;border-radius:7px;text-decoration:none;font-weight:600;font-size:.95rem}
+.cta:hover{opacity:.9}
+.links a{margin-right:1.1rem;white-space:nowrap}
+.grid{display:grid;gap:.9rem;margin:1.2rem 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1rem 1.15rem}
+.card h3{margin-top:0}
+.card .repo{font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+.stats{display:flex;flex-wrap:wrap;gap:.35rem;margin:.7rem 0}
+.stat{background:var(--code-bg);border:1px solid var(--line);border-radius:999px;
+      padding:.16rem .6rem;font-size:.78rem;color:var(--muted)}
+.stat b{color:var(--fg);font-weight:620}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.9rem}
+th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:620;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.honest{border-left:3px solid var(--accent);padding:.2rem 0 .2rem 1rem;margin:1.2rem 0}
+hr{border:0;border-top:1px solid var(--line);margin:3rem 0}
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+@media print{body{font-size:11pt}.cta{display:none}pre{page-break-inside:avoid}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <div class="brand">Kiliaan Vanvoorden</div>
-      <nav class="links" aria-label="Primary">
-        <a href="#projects">Projects</a>
-        <a href="#offer">Estates Sale</a>
-        <a href="https://github.com/BoozeLee">GitHub</a>
-        <a href="mailto:bakerstreetbandit@zohomail.eu">Contact</a>
-      </nav>
+<div class="wrap">
+
+<header>
+  <h1>Kiliaan Vanvoorden</h1>
+  <p class="lede">
+    I build the checks that decide whether an AI system is right — evaluation
+    harnesses, tamper tests, and regression gates for agentic systems.
+  </p>
+  <p class="links">
+    <a class="cta" href="mailto:bakerstreetbandit@zohomail.eu">Email me</a>
+    <a href="https://github.com/BoozeLee">github.com/BoozeLee</a>
+    <a href="https://boozelee.github.io/resume.pdf">Resume (PDF)</a>
+    <a href="tel:+32497774869">+32 477 77 48 69</a>
+  </p>
+  <p class="meta">Riemst, Belgium · open to remote work in the EU · Python · Rust · TypeScript</p>
+</header>
+
+<h2>The part that matters</h2>
+<p>
+  Most AI tooling demos show you the happy path. I build the part that decides
+  whether the thing is <em>actually</em> right — and I make the check itself
+  trustworthy, because a green test that cannot fail is worse than no test.
+</p>
+<p>
+  Concretely: I write gates that must <em>fail</em> when seeded with a mutated
+  claim, bind every published number to a checksum so it cannot drift silently,
+  and keep the failure list honest instead of rounding it away.
+</p>
+
+<h2>Public work</h2>
+<p class="small">
+  Every figure below was measured on a clean clone, not in a working directory.
+  The command that reproduces it is shown with each project — run it yourself.
+</p>
+
+<div class="grid">
+
+  <div class="card">
+    <p class="repo">MIT · <a href="https://github.com/BoozeLee/elohim">BoozeLee/elohim</a></p>
+    <h3>elohim — a checksum gate for numerical claims</h3>
+    <p>
+      An agent-skill ledger that pins each published number to a checksum and
+      refuses any value it cannot re-derive. It is also instrumented against
+      itself: seeded mutations must be caught.
+    </p>
+    <div class="stats">
+      <span class="stat"><b>81</b> facts classified</span>
+      <span class="stat"><b>107</b> checksum-pinned values</span>
+      <span class="stat"><b>38/38</b> traps re-derived</span>
+      <span class="stat"><b>6/6</b> tampered copies caught</span>
+      <span class="stat"><b>7</b> shipped skills</span>
+      <span class="stat"><b>20,639</b> non-blank tracked lines</span>
     </div>
-    <div class="wrap hero">
-      <img class="avatar" src="https://github.com/BoozeLee.png" alt="Kiliaan Vanvoorden GitHub avatar">
-      <div>
-        <p class="eyebrow">Open to internships and junior software roles</p>
-        <h1>AI tooling, automation, and full-stack prototypes built with practical engineering discipline.</h1>
-        <p class="lead">I am a software engineering candidate from Hasselt, Belgium, focused on AI-assisted developer tooling, local-first systems, React/TypeScript applications, Flutter prototypes, and automation-heavy workflows.</p>
-        <div class="actions">
-          <a class="button" href="https://github.com/BoozeLee">View GitHub</a>
-          <a class="button secondary" href="mailto:bakerstreetbandit@zohomail.eu">Email me</a>
-        </div>
-      </div>
+<pre><code>git clone https://github.com/BoozeLee/elohim &amp;&amp; cd elohim
+python3 tests/test_all.py        # -&gt; ALL_SKILLS_PASS</code></pre>
+    <p class="small">
+      The tamper suite seeds six broken copies and asserts each one produces
+      <code>verdict FAIL</code> with a <code>PIN DRIFT</code> report. A gate that
+      cannot be made to fail is not evidence, so failing is the tested behaviour.
+    </p>
+    <p class="small">
+      Figures are pinned to commit <code>114f660</code> and are re-derivable there
+      forever. The repository is being actively developed, so figures on its
+      current <code>main</code> may already be higher.
+    </p>
+  </div>
+
+  <div class="card">
+    <p class="repo">AGPL-3.0-only · <a href="https://github.com/BoozeLee/harness">BoozeLee/harness</a></p>
+    <h3>harness — a pipeline for agent changes with a real gate</h3>
+    <p>
+      A CLI that takes an agent from scanning a repo to opening a pull request,
+      with verification wired in as a step that must pass rather than a note
+      someone reads.
+    </p>
+    <div class="stats">
+      <span class="stat"><b>88</b> tests passing</span>
+      <span class="stat"><b>11</b> subcommands</span>
+      <span class="stat"><b>1.1.0</b> builds a wheel</span>
     </div>
-  </header>
+<pre><code>pip install "git+https://github.com/BoozeLee/harness"
+harness --version        # 1.1.0
+pytest -q                # 88 passed</code></pre>
+  </div>
 
-  <main>
-    <section class="wrap section">
-      <div class="summary">
-        <div class="panel">
-          <h2>Profile</h2>
-          <p>I build small, working systems and document them carefully: agent prototypes, web apps, research repositories, and mobile concepts. I am strongest where product ideas need to become runnable software with readable code, clear setup notes, and sensible automation.</p>
-          <p>I am looking for teams where I can contribute to AI systems, developer tooling, full-stack product engineering, automation, or applied research while growing under senior engineering review.</p>
-        </div>
-        <div class="panel">
-          <h2>Stack</h2>
-          <div class="chips">
-            <span class="chip">Python</span>
-            <span class="chip">TypeScript</span>
-            <span class="chip">React</span>
-            <span class="chip">Vite</span>
-            <span class="chip">Flutter</span>
-            <span class="chip">Rust</span>
-            <span class="chip">Supabase</span>
-            <span class="chip">GitHub Actions</span>
-            <span class="chip">Linux</span>
-            <span class="chip">LLM tooling</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="card">
+    <p class="repo">AGPL-3.0-only · <a href="https://github.com/Bakery-street-project/galacticfederation">galacticfederation / repotruth</a></p>
+    <h3>repotruth — catch AI-written claims before they ship</h3>
+    <p>
+      Repositories drift. AI tooling writes confident summaries of code that
+      stopped existing months ago. repotruth diffs the claims against the repo
+      and fails the build when a description no longer matches the code.
+    </p>
+    <div class="stats">
+      <span class="stat"><b>147</b> tests</span>
+      <span class="stat"><b>32</b> suites</span>
+      <span class="stat"><b>0</b> failures</span>
+    </div>
+<pre><code>git clone https://github.com/Bakery-street-project/galacticfederation
+cd galacticfederation/repotruth &amp;&amp; npm ci &amp;&amp; npm test</code></pre>
+  </div>
 
-    <section class="wrap section" id="projects">
-      <h2>Selected Working Projects</h2>
-      <div class="grid">
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/mixhive">mixhive</a></h3>
-            <p>DJ-first social music platform with React, Vite, Supabase, mix sharing, and waveform-oriented product direction.</p>
-          </div>
-          <div class="meta"><span>React</span><span>Vite</span><span>Supabase</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/pauliens-sky-app">pauliens-sky-app</a></h3>
-            <p>Flutter app exploring cross-cultural astrology concepts with a mobile-first structure and documented governance.</p>
-          </div>
-          <div class="meta"><span>Flutter</span><span>Dart</span><span>Mobile</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/synapse-ace-agent">synapse-ace-agent</a></h3>
-            <p>Autonomous agent prototype for SAP/OOBE workflow research, structured around service orchestration and validation.</p>
-          </div>
-          <div class="meta"><span>TypeScript</span><span>Agents</span><span>Automation</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/trendforge-agent">trendforge-agent</a></h3>
-            <p>Rust-based research automation project for structured trend analysis and repeatable data workflows.</p>
-          </div>
-          <div class="meta"><span>Rust</span><span>Research</span><span>CLI</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/vlaio-webapp">vlaio-webapp</a></h3>
-            <p>Innovation demo that presents AI workflow concepts in a business-facing web application.</p>
-          </div>
-          <div class="meta"><span>TypeScript</span><span>Web</span><span>Demo</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/jazzy-ai-models">jazzy-ai-models</a></h3>
-            <p>AI model research database and notes, focused on finding useful models beyond the obvious defaults.</p>
-          </div>
-          <div class="meta"><span>Python</span><span>AI research</span><span>Data</span></div>
-        </article>
-        <article class="project">
-          <div>
-            <h3><a href="https://github.com/BoozeLee/graveyard-forensics">graveyard-forensics</a></h3>
-            <p>Estates Sale report for GitHub profiles and orgs: stub repos, fake price claims, dead homepages, keepers. Self-audited 200-repo teardown.</p>
-          </div>
-          <div class="meta"><span>Python</span><span>Audit</span><span>$79 PDF+CSV</span></div>
-        </article>
-      </div>
-    </section>
+  <div class="card">
+    <p class="repo">AGPL-3.0-only · <a href="https://github.com/BoozeLee/terminal221b">BoozeLee/terminal221b</a></p>
+    <h3>terminal221b — a TUI case store with a Rust core</h3>
+    <p>
+      A terminal application for working through case material: TypeScript
+      interface, Rust workspace for the logic, and a suite that has to pass on
+      both sides of the boundary.
+    </p>
+    <div class="stats">
+      <span class="stat"><b>385</b> TypeScript tests</span>
+      <span class="stat"><b>60</b> Rust tests</span>
+      <span class="stat"><b>445</b> total</span>
+    </div>
+<pre><code>git clone https://github.com/BoozeLee/terminal221b &amp;&amp; cd terminal221b
+npm ci &amp;&amp; npx vitest run     # 385 passed
+cargo test --workspace         # 60 passed</code></pre>
+  </div>
 
-    <section class="wrap section" id="offer">
-      <div class="panel">
-        <h2>Estates Sale — GitHub graveyard audit ($79)</h2>
-        <p>Same scanner I ran on my own profile: grave score, price-claim smells, migration stubs, dead links, keepers, and a 14-day cleanup plan. Deliverable is PDF + row-level CSV. Public GitHub metadata only.</p>
-        <p><a href="https://github.com/BoozeLee/graveyard-forensics/blob/master/TEARDOWN.md">Read my full self-teardown</a> · <a href="https://github.com/BoozeLee/graveyard-forensics/blob/master/OFFER.md">Offer &amp; fulfillment</a> · free teaser via issue template.</p>
-        <div class="actions">
-          <a class="button" href="https://github.com/BoozeLee/graveyard-forensics">Open Graveyard Forensics</a>
-          <a class="button secondary" href="mailto:bakerstreetbandit@zohomail.eu?subject=Estates%20Sale%20report">Email to buy</a>
-        </div>
-      </div>
-    </section>
+  <div class="card">
+    <p class="repo">ISC · <a href="https://github.com/BoozeLee/mcp-regression-lab">BoozeLee/mcp-regression-lab</a></p>
+    <h3>mcp-regression-lab — contract drift as a failing check</h3>
+    <p>
+      A GitHub Action that diffs an MCP server's tool contract across releases and
+      fails on silent breaks, backed by a golden-regression corpus. Untrusted tool
+      text is sanitised before it reaches a PR comment.
+    </p>
+    <div class="stats">
+      <span class="stat"><b>29</b> tests passing</span>
+      <span class="stat"><b>1,340</b> tracked lines</span>
+      <span class="stat"><b>7</b> commits</span>
+    </div>
+<pre><code>git clone https://github.com/BoozeLee/mcp-regression-lab &amp;&amp; cd mcp-regression-lab
+npm ci &amp;&amp; npm test</code></pre>
+  </div>
 
-    <section class="wrap section">
-      <div class="panel">
-        <h2>What Employers Can Expect</h2>
-        <p>Clear communication, careful repository hygiene, practical problem solving, and a bias toward shipping small verified improvements. I keep portfolio projects public only when they are working, documented, or useful as evidence of engineering growth.</p>
-      </div>
-    </section>
-  </main>
+</div>
 
-  <footer>
-    <div class="wrap">Hasselt, Belgium | <a href="mailto:bakerstreetbandit@zohomail.eu">bakerstreetbandit@zohomail.eu</a> | <a href="https://github.com/BoozeLee">github.com/BoozeLee</a></div>
-  </footer>
+<h2>Private work I can walk you through</h2>
+<p>
+  These are real and measured, but they are not public. I am happy to show the code
+  and talk through the trade-offs on a call.
+</p>
+<table>
+  <thead><tr><th>Project</th><td class="num">Commits</td><td class="num">Files</td><td class="num">Tracked lines</td><td class="num">Tests</th></tr></thead>
+  <tbody>
+    <tr><td>capo — planning and orchestration</td><td class="num">68</td><td class="num">168</td><td class="num">11,134</td><td class="num">349</td></tr>
+    <tr><td>superbrain</td><td class="num">8</td><td class="num">42</td><td class="num">11,422</td><td class="num">298</td></tr>
+    <tr><td>beehive-studio</td><td class="num">51</td><td class="num">300</td><td class="num">59,472</td><td class="num">not claimed</td></tr>
+  </tbody>
+</table>
+<p class="small">
+  beehive-studio carries no test count on purpose. I have not run its full suite,
+  so I do not have a number I can defend, and I would rather leave the cell empty.
+</p>
+
+<h2>What I do not claim</h2>
+<div class="honest">
+  <ul>
+    <li><strong>No production deployments.</strong> Everything here is personal work, run on my own machine. Nobody depends on it yet.</li>
+    <li><strong>Self-taught, no degree.</strong> No CS degree, no certifications. I learned by building and by reading source.</li>
+    <li><strong>No employment history to point at.</strong> I am applying for my first engineering role. I would rather tell you that than imply otherwise.</li>
+    <li><strong>Solo and independent.</strong> The projects in this portfolio are built and maintained by one person. Where something is not finished, I say so.</li>
+  </ul>
+</div>
+
+<h2>How I work</h2>
+<ul>
+  <li><strong>Measure before claiming.</strong> A number I cannot re-derive does not go on a page.</li>
+  <li><strong>Negative controls.</strong> Before trusting a gate, I break it on purpose and confirm it notices.</li>
+  <li><strong>Honest failure lists.</strong> A harness that reports 17/20 with reasons is more useful than one claiming 20/20.</li>
+  <li><strong>Delete, don't soften.</strong> An unsupported claim gets cut and logged. Vague wording is still a false claim.</li>
+</ul>
+
+<h2>Contact</h2>
+<p>
+  <a href="mailto:bakerstreetbandit@zohomail.eu">bakerstreetbandit@zohomail.eu</a> ·
+  <a href="tel:+32497774869">+32 477 77 48 69</a> · Riemst, Belgium
+</p>
+<p class="small">
+  Also on <a href="https://github.com/BoozeLee">GitHub</a>. I reply to email.
+</p>
+
+<footer>
+  <p>
+    Every figure on this page was measured from a clean clone and is reproducible
+    with the command shown. If you find one that does not reproduce, that is a bug —
+    please tell me and I will fix the page.
+  </p>
+  <p class="small">
+    Built as a single static file. No trackers, no cookies, no external requests.
+  </p>
+</footer>
+
+</div>
 </body>
 </html>
